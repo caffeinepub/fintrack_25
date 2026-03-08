@@ -184,7 +184,7 @@ export function getDB(): Promise<IDBPDatabase<FinTrackDB>> {
       },
     });
   }
-  return dbPromise;
+  return dbPromise as Promise<IDBPDatabase<FinTrackDB>>;
 }
 
 // Generate a UUID
