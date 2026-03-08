@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { initializeDB } from "@/lib/db";
+import { ThemeProvider, useTheme } from "@/lib/theme";
 import Accounts from "@/pages/Accounts";
 import Dashboard from "@/pages/Dashboard";
 import Insights from "@/pages/Insights";
@@ -37,9 +38,10 @@ const navItems: { id: Page; label: string; icon: React.ElementType }[] = [
   { id: "settings", label: "Settings", icon: Settings },
 ];
 
-export default function App() {
+function AppInner() {
   const [activePage, setActivePage] = useState<Page>("dashboard");
   const [isReady, setIsReady] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     initializeDB()
@@ -102,8 +104,8 @@ export default function App() {
       <nav
         className="fixed bottom-0 left-0 right-0 z-50"
         style={{
-          background: "oklch(0.16 0.03 255)",
-          borderTop: "1px solid oklch(0.28 0.04 255)",
+          background: "oklch(var(--card))",
+          borderTop: "1px solid oklch(var(--border))",
           paddingBottom: "env(safe-area-inset-bottom)",
         }}
       >
@@ -119,14 +121,14 @@ export default function App() {
                 className="flex-1 flex flex-col items-center justify-center gap-0.5 transition-all duration-200 relative"
                 style={{
                   color: isActive
-                    ? "oklch(0.6 0.2 255)"
-                    : "oklch(0.55 0.02 255)",
+                    ? "oklch(var(--primary))"
+                    : "oklch(var(--muted-foreground))",
                 }}
               >
                 {isActive && (
                   <span
                     className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 rounded-full"
-                    style={{ background: "oklch(0.6 0.2 255)" }}
+                    style={{ background: "oklch(var(--primary))" }}
                   />
                 )}
                 <Icon
@@ -134,7 +136,7 @@ export default function App() {
                   strokeWidth={isActive ? 2.5 : 1.8}
                   style={{
                     filter: isActive
-                      ? "drop-shadow(0 0 6px oklch(0.6 0.2 255 / 0.8))"
+                      ? "drop-shadow(0 0 4px oklch(var(--primary) / 0.4))"
                       : "none",
                   }}
                 />
@@ -151,16 +153,24 @@ export default function App() {
       </nav>
 
       <Toaster
-        theme="dark"
+        theme={theme === "dark" ? "dark" : "light"}
         position="top-center"
         toastOptions={{
           style: {
-            background: "oklch(0.2 0.035 255)",
-            border: "1px solid oklch(0.28 0.04 255)",
-            color: "oklch(0.95 0.01 255)",
+            background: "oklch(var(--card))",
+            border: "1px solid oklch(var(--border))",
+            color: "oklch(var(--foreground))",
           },
         }}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppInner />
+    </ThemeProvider>
   );
 }

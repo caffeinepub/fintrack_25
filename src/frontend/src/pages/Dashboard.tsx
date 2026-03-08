@@ -282,17 +282,17 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           className="absolute -right-6 -top-6 w-32 h-32 rounded-full opacity-10"
           style={{ background: "oklch(0.6 0.2 255)" }}
         />
-        <p className="text-muted-foreground text-sm">{greeting()}</p>
-        <h1 className="font-display text-2xl font-bold text-foreground mt-0.5">
+        <p className="text-blue-100 text-sm">{greeting()}</p>
+        <h1 className="font-display text-2xl font-bold text-white mt-0.5">
           Your Finances
         </h1>
-        <p className="text-xs text-muted-foreground mt-1">{today}</p>
+        <p className="text-xs text-blue-200 mt-1">{today}</p>
         <button
           type="button"
           onClick={loadData}
           className="absolute top-4 right-4 p-2 rounded-lg hover:bg-white/10 transition-colors"
         >
-          <RefreshCw size={16} className="text-muted-foreground" />
+          <RefreshCw size={16} className="text-blue-200" />
         </button>
       </div>
 

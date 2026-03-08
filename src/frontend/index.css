@@ -22,70 +22,123 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --radius: 0.75rem;
 
-    /* FinTrack Dark Theme - Fintech Navy */
-    --background: 0.13 0.03 255;
-    --foreground: 0.95 0.01 255;
-    --card: 0.18 0.03 255;
-    --card-foreground: 0.95 0.01 255;
-    --popover: 0.2 0.035 255;
-    --popover-foreground: 0.95 0.01 255;
-    --primary: 0.6 0.2 255;
-    --primary-foreground: 0.98 0 0;
-    --secondary: 0.22 0.04 255;
-    --secondary-foreground: 0.85 0.01 255;
-    --muted: 0.22 0.04 255;
-    --muted-foreground: 0.6 0.02 255;
-    --accent: 0.25 0.05 255;
-    --accent-foreground: 0.9 0.01 255;
-    --destructive: 0.6 0.22 25;
-    --destructive-foreground: 0.98 0 0;
-    --border: 0.28 0.04 255;
-    --input: 0.22 0.04 255;
-    --ring: 0.6 0.2 255;
+    /* FinTrack Light Theme - Clean Fintech */
+    --background: 0.97 0.005 255;
+    --foreground: 0.15 0.03 255;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.03 255;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.03 255;
+    --primary: 0.5 0.2 255;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.93 0.01 255;
+    --secondary-foreground: 0.25 0.03 255;
+    --muted: 0.94 0.01 255;
+    --muted-foreground: 0.5 0.02 255;
+    --accent: 0.92 0.02 255;
+    --accent-foreground: 0.2 0.03 255;
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+    --border: 0.88 0.015 255;
+    --input: 0.93 0.01 255;
+    --ring: 0.5 0.2 255;
 
     /* Fintrack semantic colors */
-    --income: 0.65 0.2 145;
-    --income-muted: 0.3 0.08 145;
-    --expense: 0.6 0.22 25;
-    --expense-muted: 0.28 0.08 25;
-    --investment: 0.7 0.18 50;
-    --investment-muted: 0.3 0.07 50;
-    --insights: 0.65 0.18 300;
-    --insights-muted: 0.28 0.07 300;
+    --income: 0.52 0.18 145;
+    --income-muted: 0.92 0.06 145;
+    --expense: 0.52 0.2 25;
+    --expense-muted: 0.93 0.06 25;
+    --investment: 0.58 0.16 50;
+    --investment-muted: 0.93 0.05 50;
+    --insights: 0.52 0.16 300;
+    --insights-muted: 0.93 0.05 300;
 
     /* Charts */
-    --chart-1: 0.6 0.2 255;
-    --chart-2: 0.65 0.2 145;
-    --chart-3: 0.6 0.22 25;
-    --chart-4: 0.7 0.18 50;
-    --chart-5: 0.65 0.18 300;
+    --chart-1: 0.5 0.2 255;
+    --chart-2: 0.52 0.18 145;
+    --chart-3: 0.52 0.2 25;
+    --chart-4: 0.58 0.16 50;
+    --chart-5: 0.52 0.16 300;
 
     /* Sidebar */
-    --sidebar: 0.16 0.03 255;
-    --sidebar-foreground: 0.95 0.01 255;
-    --sidebar-primary: 0.6 0.2 255;
-    --sidebar-primary-foreground: 0.98 0 0;
-    --sidebar-accent: 0.22 0.04 255;
-    --sidebar-accent-foreground: 0.9 0.01 255;
-    --sidebar-border: 0.28 0.04 255;
-    --sidebar-ring: 0.6 0.2 255;
+    --sidebar: 1 0 0;
+    --sidebar-foreground: 0.15 0.03 255;
+    --sidebar-primary: 0.5 0.2 255;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.93 0.01 255;
+    --sidebar-accent-foreground: 0.2 0.03 255;
+    --sidebar-border: 0.88 0.015 255;
+    --sidebar-ring: 0.5 0.2 255;
 
     /* Elevation shadows */
-    --shadow-card: 0 4px 24px oklch(0 0 0 / 0.4), 0 1px 4px oklch(0 0 0 / 0.3);
-    --shadow-elevated: 0 8px 32px oklch(0 0 0 / 0.5), 0 2px 8px oklch(0 0 0 / 0.3);
+    --shadow-card: 0 2px 12px oklch(0 0 0 / 0.07), 0 1px 3px oklch(0 0 0 / 0.05);
+    --shadow-elevated: 0 6px 24px oklch(0 0 0 / 0.1), 0 2px 6px oklch(0 0 0 / 0.06);
 
     /* Nav height */
     --nav-height: 64px;
   }
 
-  * {
-    @apply border-border;
+  .dark {
+    color-scheme: dark;
+
+    /* FinTrack Dark Theme */
+    --background: 0.12 0.02 255;
+    --foreground: 0.92 0.01 255;
+    --card: 0.16 0.025 255;
+    --card-foreground: 0.92 0.01 255;
+    --popover: 0.16 0.025 255;
+    --popover-foreground: 0.92 0.01 255;
+    --primary: 0.6 0.2 255;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.22 0.03 255;
+    --secondary-foreground: 0.85 0.01 255;
+    --muted: 0.2 0.025 255;
+    --muted-foreground: 0.6 0.025 255;
+    --accent: 0.22 0.03 255;
+    --accent-foreground: 0.9 0.01 255;
+    --destructive: 0.6 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+    --border: 0.25 0.03 255;
+    --input: 0.22 0.03 255;
+    --ring: 0.6 0.2 255;
+
+    /* Fintrack semantic colors */
+    --income: 0.6 0.18 145;
+    --income-muted: 0.22 0.06 145;
+    --expense: 0.6 0.2 25;
+    --expense-muted: 0.22 0.06 25;
+    --investment: 0.65 0.16 50;
+    --investment-muted: 0.22 0.05 50;
+    --insights: 0.6 0.16 300;
+    --insights-muted: 0.22 0.05 300;
+
+    /* Charts */
+    --chart-1: 0.6 0.2 255;
+    --chart-2: 0.6 0.18 145;
+    --chart-3: 0.6 0.2 25;
+    --chart-4: 0.65 0.16 50;
+    --chart-5: 0.6 0.16 300;
+
+    /* Sidebar */
+    --sidebar: 0.16 0.025 255;
+    --sidebar-foreground: 0.92 0.01 255;
+    --sidebar-primary: 0.6 0.2 255;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.22 0.03 255;
+    --sidebar-accent-foreground: 0.9 0.01 255;
+    --sidebar-border: 0.25 0.03 255;
+    --sidebar-ring: 0.6 0.2 255;
+
+    /* Elevation shadows - darker in dark mode */
+    --shadow-card: 0 2px 12px oklch(0 0 0 / 0.3), 0 1px 3px oklch(0 0 0 / 0.2);
+    --shadow-elevated: 0 6px 24px oklch(0 0 0 / 0.4), 0 2px 6px oklch(0 0 0 / 0.25);
   }
 
-  html {
-    color-scheme: dark;
+  * {
+    @apply border-border;
   }
 
   body {

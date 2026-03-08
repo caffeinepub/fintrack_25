@@ -20,14 +20,18 @@ import {
   saveCategory,
   setSetting,
 } from "@/lib/db";
+import { useTheme } from "@/lib/theme";
 import {
   Bell,
   ChevronDown,
   ChevronRight,
   Download,
   List,
+  Moon,
+  Palette,
   Plus,
   Shield,
+  Sun,
   Tag,
   Trash2,
   Upload,
@@ -37,6 +41,7 @@ import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function SettingsPage() {
+  const { theme, setTheme } = useTheme();
   const [entryMode, setEntryMode] = useState<"simple" | "detailed">("simple");
   const [reminderEnabled, setReminderEnabled] = useState(false);
   const [reminderTime, setReminderTime] = useState("20:00");
@@ -208,6 +213,54 @@ export default function SettingsPage() {
       </div>
 
       <div className="flex-1 px-4 py-4 space-y-4">
+        {/* Appearance */}
+        <SettingSection icon={Palette} title="Appearance">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium">Theme</p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                Choose your preferred appearance
+              </p>
+            </div>
+            <div className="flex items-center rounded-xl border border-border overflow-hidden">
+              <button
+                type="button"
+                data-ocid="settings.theme_light.toggle"
+                onClick={() => setTheme("light")}
+                className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium transition-all duration-200"
+                style={{
+                  background:
+                    theme === "light" ? "oklch(var(--primary))" : "transparent",
+                  color:
+                    theme === "light"
+                      ? "oklch(var(--primary-foreground))"
+                      : "oklch(var(--muted-foreground))",
+                }}
+              >
+                <Sun size={14} />
+                Light
+              </button>
+              <button
+                type="button"
+                data-ocid="settings.theme_dark.toggle"
+                onClick={() => setTheme("dark")}
+                className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium transition-all duration-200"
+                style={{
+                  background:
+                    theme === "dark" ? "oklch(var(--primary))" : "transparent",
+                  color:
+                    theme === "dark"
+                      ? "oklch(var(--primary-foreground))"
+                      : "oklch(var(--muted-foreground))",
+                }}
+              >
+                <Moon size={14} />
+                Dark
+              </button>
+            </div>
+          </div>
+        </SettingSection>
+
         {/* Entry Mode */}
         <SettingSection icon={List} title="Transaction Entry Mode">
           <div className="flex items-center justify-between">
@@ -500,7 +553,7 @@ export default function SettingsPage() {
       <Dialog open={isCatDialogOpen} onOpenChange={setIsCatDialogOpen}>
         <DialogContent
           className="max-w-sm mx-auto rounded-2xl"
-          style={{ background: "oklch(0.18 0.03 255)" }}
+          style={{ background: "oklch(var(--card))" }}
           data-ocid="settings.category.dialog"
         >
           <DialogHeader>
